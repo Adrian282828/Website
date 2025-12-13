@@ -47,7 +47,7 @@ export function HeroSection() {
             </div>
 
             <h1 className="text-5xl md:text-7xl font-bold mb-4 tracking-tight">
-              Adrian Cortland
+              Adrian Cortlandt
             </h1>
 
             <p className="text-lg text-muted-foreground max-w-xl mb-8 leading-relaxed">
