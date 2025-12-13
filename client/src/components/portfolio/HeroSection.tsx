@@ -33,7 +33,7 @@ export function HeroSection() {
           <div className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-muted border-4 border-primary/20 overflow-hidden shrink-0">
             <img 
               src={profilePhoto} 
-              alt="Adrian Cortland" 
+              alt="Adrian Cortlandt" 
               className="w-full h-full object-cover" style={{ objectPosition: "60% 20%" }}
             />
           </div>
