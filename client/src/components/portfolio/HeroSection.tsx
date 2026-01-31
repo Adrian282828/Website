@@ -65,7 +65,7 @@ export function HeroSection() {
                 asChild
                 data-testid="link-github"
               >
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/Adrian282828" target="_blank" rel="noopener noreferrer">
                   <Github className="mr-2 h-4 w-4" />
                   GitHub
                 </a>
