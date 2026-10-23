@@ -79,14 +79,18 @@ export function SkillsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="flex flex-wrap justify-center gap-6">
           {skillCategories.map((category) => (
-            <SkillCard
+            <div
               key={category.title}
-              title={category.title}
-              icon={category.icon}
-              skills={category.skills}
-            />
+              className="w-full md:w-[calc(50%-0.75rem)] lg:w-[calc((100%-3rem)/3)]"
+            >
+              <SkillCard
+                title={category.title}
+                icon={category.icon}
+                skills={category.skills}
+              />
+            </div>
           ))}
         </div>
       </div>

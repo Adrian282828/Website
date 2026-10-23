@@ -10,7 +10,7 @@ export function Footer() {
           <div className="flex items-center gap-2 text-muted-foreground">
             <Cpu className="h-4 w-4" />
             <span className="text-sm">
-              {currentYear} Embedded Systems Engineer Portfolio
+              &copy; {currentYear} Adrian Cortlandt
             </span>
           </div>
           <p className="text-sm text-muted-foreground">

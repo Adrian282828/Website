@@ -32,7 +32,7 @@
 - Full-width backgrounds with constrained content
 
 **Grid Patterns**:
-- Skills: 2-column grid on mobile, 4-column on desktop (grid-cols-2 md:grid-cols-4)
+- Skills: 1 column on mobile, 2 on tablet, 3 on desktop, with the last row centered
 - Projects: Single column cards with internal flex layouts for image + content
 - Technical tags: Flex wrap with gap-2
 
@@ -41,7 +41,7 @@
 **Hero Section** (h-screen or min-h-screen):
 - Large professional headshot or workspace photo (engineering bench, oscilloscope, PCBs)
 - Name in large, bold typography
-- Title: "Embedded Systems Engineer" or "Hardware & Digital Design Engineer"
+- Title: "Systems & Software Engineer"
 - Brief 2-sentence value statement
 - Primary CTA: "View Projects" smooth scroll button
 - Secondary: GitHub icon link
@@ -49,13 +49,13 @@
 
 **Skills Section** (py-20):
 - "Technical Expertise" heading
-- Four category cards in grid layout: Embedded Systems, Digital Design, Electronics & Hardware, Software & Tools
+- Five category cards: Coding Languages, Embedded Systems, Digital Design, Electronics & Hardware, Software & Tools (3 per row on desktop, last row centered)
 - Each card has category title + bulleted skill list
 - Subtle card borders, clean hierarchy
 
 **Projects Section** (py-24):
 - "Featured Projects" heading
-- 8 project cards in vertical stack with generous spacing (space-y-16)
+- 7 project cards in a vertical stack (space-y-8)
 - Each card: Left-aligned image (40% width on desktop, full-width mobile) + right-aligned content (60%)
 - Alternate image position (left/right) for visual rhythm
 - Content includes: Project title, 2-3 sentence description, "Key Technologies" tag group, "Technical Highlights" bulleted list
@@ -94,16 +94,15 @@
 - Clean borders, subtle hover state
 
 ## Images
-**Required Images**:
-1. **Hero**: Professional photo (headshot or workspace with hardware) - full-width background with overlay
-2. **Custom CPU Project**: VHDL simulation screenshot or architecture diagram
-3. **Gyro DAC**: Photo of ATxmega board with oscilloscope waveform
-4. **Audio Amplifier**: PCB photo (populated board)
-5. **FSAE**: Race car electrical system or team photo
-6. **GRiP Controller**: Modified Xbox controller photo
-7. **IMU Driver**: Sensor board or SerialPlot data visualization
-8. **Synthesizer**: Microcontroller setup with waveform output
-9. **Regression AI**: Looker Studio dashboard screenshot
+**Current Images** (WebP, max 1200px wide, in `attached_assets/`):
+1. **Hero**: Profile photo
+2. **EBI External Bus Interface**: Breadboard build with ATxmega board
+3. **Custom 4-bit CPU**: VHDL simulation / architecture screenshot
+4. **AVL Tree**: Code / output screenshot
+5. **Minesweeper**: Game screenshot
+6. **Audio Amplifier**: Populated PCB photo
+7. **IMU SPI Driver**: SerialPlot data visualization
+8. **Regression AI ("Cammy")**: Looker Studio dashboard screenshot
 
 **Image Treatment**: All project images should be crisp, well-lit technical photos. Use rounded-lg corners, subtle shadows for depth.
 

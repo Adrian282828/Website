@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Github, Cpu, CircuitBoard, Zap } from "lucide-react";
-import profilePhoto from "@assets/New_me_1765600259204.jpg";
+import profilePhoto from "@assets/New_me_1765600259204.webp";
 
 export function HeroSection() {
   const scrollToProjects = () => {
@@ -42,7 +42,7 @@ export function HeroSection() {
             <div className="mb-4">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
                 <Cpu className="h-4 w-4" />
-                Software & Embedded Systems Engineer
+                Systems & Software Engineer
               </span>
             </div>
 

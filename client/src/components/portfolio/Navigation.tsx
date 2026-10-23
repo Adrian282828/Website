@@ -45,7 +45,7 @@ export function Navigation() {
             data-testid="link-home"
           >
             <Cpu className="h-5 w-5 text-primary" />
-            <span>Portfolio</span>
+            <span>Adrian Cortlandt</span>
           </button>
 
           <div className="hidden md:flex items-center gap-1">

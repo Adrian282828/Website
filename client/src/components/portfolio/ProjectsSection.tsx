@@ -8,13 +8,13 @@ import {
   TreeDeciduous,
   Bomb,
 } from "lucide-react";
-import ebiImage from "@assets/Ebi_1765600059662.jpg";
-import cpuImage from "@assets/CPU_1765606942178.png";
-import regressionImage from "@assets/image_1765606804334.png";
-import amplifierImage from "@assets/image_1765607800003.png";
-import imuImage from "@assets/image_1765608588509.png";
-import minesweeperImage from "@assets/image_1765608966486.png";
-import avlImage from "@assets/image_1765609061594.png";
+import ebiImage from "@assets/Ebi_1765600059662.webp";
+import cpuImage from "@assets/CPU_1765606942178.webp";
+import regressionImage from "@assets/image_1765606804334.webp";
+import amplifierImage from "@assets/image_1765607800003.webp";
+import imuImage from "@assets/image_1765608588509.webp";
+import minesweeperImage from "@assets/image_1765608966486.webp";
+import avlImage from "@assets/image_1765609061594.webp";
 
 const projects = [
   {

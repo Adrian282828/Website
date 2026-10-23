@@ -39,7 +39,9 @@ export function ProjectCard({
             {image ? (
               <img 
                 src={image} 
-                alt={title} 
+                alt={title}
+                loading="lazy"
+                decoding="async"
                 className={`w-full h-full min-h-[200px] md:min-h-[300px] ${imageContain ? 'object-contain p-4' : 'object-cover'}`}
               />
             ) : (
