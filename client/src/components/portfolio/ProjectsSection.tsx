@@ -7,6 +7,7 @@ import {
   MemoryStick,
   TreeDeciduous,
   Bomb,
+  Crosshair,
 } from "lucide-react";
 import ebiImage from "@assets/Ebi_1765600059662.webp";
 import cpuImage from "@assets/CPU_1765606942178.webp";
@@ -15,8 +16,25 @@ import amplifierImage from "@assets/image_1765607800003.webp";
 import imuImage from "@assets/image_1765608588509.webp";
 import minesweeperImage from "@assets/image_1765608966486.webp";
 import avlImage from "@assets/image_1765609061594.webp";
+import internProjectImage from "@assets/intern_project.webp";
 
 const projects = [
+  {
+    title: "Counter-Drone Training Simulator (Competition Winner)",
+    description:
+      "Won the intern project competition with a fully immersive counter-drone training simulator, delivered in 8 weeks from just a wooden post, an Xbox controller, a VectorNav VN-100 IMU, and a tripod. Our team designed a custom 3D printed gimbal and an Unreal Engine simulation that tracks the physical weapon's movement in real time and mirrors it in the virtual environment.",
+    technologies: ["VectorNav VN-100", "Unreal Engine", "IMU", "3D Printing", "Xbox Controller"],
+    highlights: [
+      "Elected by a 20-person intern cohort to lead the integration team, based on prior embedded systems experience",
+      "Owned the VN-100 end to end: capturing and decoding its output, calibrating it, and streaming its orientation data into Unreal",
+      "Kept the hardware and software sides in constant communication as Integration Lead",
+      "Presented the completed system and supporting business case to Lockheed Martin executives, VPs, and program management",
+    ],
+    icon: Crosshair,
+    image: internProjectImage,
+    imageContain: true,
+    imageBgClass: "bg-slate-800",
+  },
   {
     title: "EBI External Bus Interface System",
     description:
