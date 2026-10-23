@@ -12,6 +12,8 @@ interface ProjectCardProps {
   imageContain?: boolean;
   imageBgClass?: string;
   reversed?: boolean;
+  // show a wide image full-width above the content instead of beside it
+  stacked?: boolean;
 }
 
 export function ProjectCard({
@@ -24,17 +26,18 @@ export function ProjectCard({
   imageContain = false,
   imageBgClass,
   reversed = false,
+  stacked = false,
 }: ProjectCardProps) {
   return (
     <Card className="overflow-hidden hover-elevate active-elevate-2">
       <CardContent className="p-0">
         <div
           className={`flex flex-col ${
-            reversed ? "md:flex-row-reverse" : "md:flex-row"
+            stacked ? "" : reversed ? "md:flex-row-reverse" : "md:flex-row"
           }`}
         >
-          <div className={`md:w-2/5 flex items-center justify-center ${imageBgClass || 'bg-muted/50'} ${
-            reversed ? "md:rounded-r-lg" : "md:rounded-l-lg"
+          <div className={`${stacked ? "" : "md:w-2/5"} flex items-center justify-center ${imageBgClass || 'bg-muted/50'} ${
+            stacked ? "" : reversed ? "md:rounded-r-lg" : "md:rounded-l-lg"
           }`}>
             {image ? (
               <img 
@@ -42,7 +45,9 @@ export function ProjectCard({
                 alt={title}
                 loading="lazy"
                 decoding="async"
-                className={`w-full h-full min-h-[200px] md:min-h-[300px] ${imageContain ? 'object-contain p-4' : 'object-cover'}`}
+                className={stacked
+                  ? "w-full h-auto"
+                  : `w-full h-full min-h-[200px] md:min-h-[300px] ${imageContain ? 'object-contain p-4' : 'object-cover'}`}
               />
             ) : (
               <div className="p-6 flex items-center justify-center h-full">
@@ -53,7 +58,7 @@ export function ProjectCard({
             )}
           </div>
 
-          <div className="md:w-3/5 p-6">
+          <div className={`${stacked ? "" : "md:w-3/5"} p-6`}>
             <h3 className="text-xl md:text-2xl font-semibold mb-3">{title}</h3>
             <p className="text-muted-foreground mb-4 leading-relaxed">
               {description}

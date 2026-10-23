@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Github, Linkedin, ArrowUpRight } from "lucide-react";
+import { Mail, Github, Linkedin, ArrowUpRight, FileDown } from "lucide-react";
 
 export function ContactSection() {
   return (
@@ -12,8 +12,8 @@ export function ContactSection() {
               Let's Connect
             </h2>
             <p className="text-muted-foreground max-w-lg mx-auto mb-8">
-              Interested in discussing embedded systems, hardware projects, or
-              potential collaboration? I'd love to hear from you.
+              Working on embedded systems, firmware, or hardware security? I'd love
+              to hear about it. Email is the fastest way to reach me.
             </p>
 
             <div className="flex flex-wrap justify-center gap-4">
@@ -22,6 +22,12 @@ export function ContactSection() {
                   <Mail className="mr-2 h-4 w-4" />
                   Email Me
                   <ArrowUpRight className="ml-2 h-4 w-4" />
+                </a>
+              </Button>
+              <Button size="lg" variant="outline" asChild data-testid="link-resume-contact">
+                <a href="/Adrian_Cortlandt_Resume.pdf" target="_blank" rel="noopener noreferrer">
+                  <FileDown className="mr-2 h-4 w-4" />
+                  Resume
                 </a>
               </Button>
               <Button size="lg" variant="outline" asChild data-testid="link-github-contact">

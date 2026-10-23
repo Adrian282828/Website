@@ -24,8 +24,10 @@ export function Navigation() {
   };
 
   const navLinks = [
-    { label: "Skills", id: "skills" },
+    { label: "Experience", id: "experience" },
     { label: "Projects", id: "projects" },
+    { label: "Skills", id: "skills" },
+    { label: "Education", id: "education" },
     { label: "Contact", id: "contact" },
   ];
 
@@ -48,7 +50,7 @@ export function Navigation() {
             <span>Adrian Cortlandt</span>
           </button>
 
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
               <Button
                 key={link.id}
@@ -59,15 +61,21 @@ export function Navigation() {
                 {link.label}
               </Button>
             ))}
+            <Button variant="outline" size="sm" className="ml-2" asChild data-testid="link-resume-nav">
+              <a href="/Adrian_Cortlandt_Resume.pdf" target="_blank" rel="noopener noreferrer">
+                Resume
+              </a>
+            </Button>
             <ThemeToggle />
           </div>
 
-          <div className="flex md:hidden items-center gap-2">
+          <div className="flex lg:hidden items-center gap-2">
             <ThemeToggle />
             <Button
               size="icon"
               variant="ghost"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
               data-testid="button-mobile-menu"
             >
               {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -76,7 +84,7 @@ export function Navigation() {
         </div>
 
         {isMobileMenuOpen && (
-          <div className="md:hidden pb-4 flex flex-col gap-1">
+          <div className="lg:hidden pb-4 flex flex-col gap-1">
             {navLinks.map((link) => (
               <Button
                 key={link.id}
@@ -88,6 +96,11 @@ export function Navigation() {
                 {link.label}
               </Button>
             ))}
+            <Button variant="ghost" className="justify-start" asChild data-testid="link-mobile-resume">
+              <a href="/Adrian_Cortlandt_Resume.pdf" target="_blank" rel="noopener noreferrer">
+                Resume
+              </a>
+            </Button>
           </div>
         )}
       </div>

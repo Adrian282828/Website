@@ -32,16 +32,19 @@
 - Full-width backgrounds with constrained content
 
 **Grid Patterns**:
-- Skills: 1 column on mobile, 2 on tablet, 3 on desktop, with the last row centered
 - Projects: Single column cards with internal flex layouts for image + content
 - Technical tags: Flex wrap with gap-2
 
 ## Page Structure
 
+Section order: Hero, Experience, Projects, Skills, Education, Contact. Positioning: Embedded Systems & Firmware Engineer, with a growing focus on hardware security. Copy should stay consistent with the resume served at `/Adrian_Cortlandt_Resume.pdf`.
+
 **Hero Section** (h-screen or min-h-screen):
 - Large professional headshot or workspace photo (engineering bench, oscilloscope, PCBs)
 - Name in large, bold typography
-- Title: "Systems & Software Engineer"
+- Title: "Embedded Systems & Firmware Engineer"
+- Three highlight tiles: Lockheed Martin, 1st Place, 3.6 GPA
+- Buttons: View Projects, Resume, GitHub, LinkedIn
 - Brief 2-sentence value statement
 - Primary CTA: "View Projects" smooth scroll button
 - Secondary: GitHub icon link
@@ -49,13 +52,14 @@
 
 **Skills Section** (py-20):
 - "Technical Expertise" heading
-- Five category cards: Coding Languages, Embedded Systems, Digital Design, Electronics & Hardware, Software & Tools (3 per row on desktop, last row centered)
+- One card with a row per category (Languages, Embedded Systems, FPGA & Hardware, Test & Instrumentation, Tools & Frameworks), skills shown as keyword badges for quick recruiter scanning
 - Each card has category title + bulleted skill list
 - Subtle card borders, clean hierarchy
 
 **Projects Section** (py-24):
 - "Featured Projects" heading
-- 7 project cards in a vertical stack (space-y-8)
+- 5 featured hardware/firmware project cards in a vertical stack (space-y-8); wide photos use the `stacked` layout
+- "More Projects" grid of compact cards for software and coursework projects
 - Each card: Left-aligned image (40% width on desktop, full-width mobile) + right-aligned content (60%)
 - Alternate image position (left/right) for visual rhythm
 - Content includes: Project title, 2-3 sentence description, "Key Technologies" tag group, "Technical Highlights" bulleted list

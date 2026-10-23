@@ -1,67 +1,71 @@
-import { SkillCard } from "./SkillCard";
-import { Cpu, CircuitBoard, Wrench, Code, Terminal } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Cpu, CircuitBoard, Gauge, Code, Terminal } from "lucide-react";
 
 const skillCategories = [
   {
-    title: "Coding Languages",
+    title: "Languages",
     icon: Terminal,
-    skills: [
-      "C",
-      "C++",
-      "Assembly",
-      "VHDL",
-      "Python",
-      "MATLAB",
-      "SQL",
-    ],
+    skills: ["C", "C++", "C#", "Python", "VHDL", "SystemVerilog", "ARM Assembly", "AVR Assembly", "R"],
   },
   {
     title: "Embedded Systems",
     icon: Cpu,
     skills: [
-      "Low-level C for microcontrollers",
-      "Assembly (ATxmega128A1U)",
-      "SPI, UART, I2C protocols",
-      "DAC, ADC, DMA configuration",
-      "Real-time signal processing",
-      "Hardware timers & interrupts",
-      "RTOS-style task structuring",
+      "ARM & AVR microcontrollers",
+      "Bare-metal firmware",
+      "Device drivers",
+      "Board bring-up",
+      "RTOS development",
+      "ROS 2 (Jazzy)",
+      "UART / SPI / I2C / RS232",
+      "ADC / DAC",
+      "DMA",
+      "Interrupts & timers",
     ],
   },
   {
-    title: "Digital Design",
+    title: "FPGA & Hardware",
     icon: CircuitBoard,
     skills: [
-      "VHDL and Verilog",
-      "Custom CPU architecture design",
-      "RTL simulation (ModelSim)",
-      "State machines & control logic",
-      "ALU, PC, decoder design",
+      "FPGA design",
+      "RTL design",
+      "Questa / ModelSim",
+      "Quartus",
+      "Vivado",
       "Timing analysis",
+      "PCB design",
+      "Op-amp circuits",
+      "LTspice",
     ],
   },
   {
-    title: "Electronics & Hardware",
-    icon: Wrench,
+    title: "Test & Instrumentation",
+    icon: Gauge,
     skills: [
-      "PCB design & schematic capture",
-      "Op-amp filters & amplifiers",
-      "Audio signal conditioning",
-      "Sensor integration (IMU, gyro)",
-      "Power distribution design",
-      "Soldering & prototyping",
+      "Oscilloscope",
+      "Logic analyzer",
+      "Function generator",
+      "Multimeter",
+      "Digilent Analog Discovery",
+      "Waveform debugging",
+      "Unit testing",
     ],
   },
   {
-    title: "Software & Tools",
+    title: "Tools & Frameworks",
     icon: Code,
     skills: [
-      "Atmel Studio, AVR toolchain",
-      "Git & GitHub",
-      "Python automation",
-      "MATLAB basics",
-      "Looker Studio dashboards",
-      "Oscilloscope & logic analyzer",
+      "Git / GitHub / GitLab",
+      "Jira",
+      "Unreal Engine",
+      "Linux CLI",
+      "WSL",
+      "Visual Studio",
+      "Atmel Studio",
+      "MATLAB",
+      "gRPC",
+      "XML",
     ],
   },
 ];
@@ -69,30 +73,43 @@ const skillCategories = [
 export function SkillsSection() {
   return (
     <section id="skills" className="py-20 md:py-24 bg-muted/30">
-      <div className="max-w-6xl mx-auto px-6 md:px-8">
+      <div className="max-w-4xl mx-auto px-6 md:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-semibold mb-4">
-            Technical Expertise
+            Technical Skills
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            From low-level firmware to custom digital hardware design
+            From register-level firmware to RTL design and bench-level debugging
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-6">
-          {skillCategories.map((category) => (
-            <div
-              key={category.title}
-              className="w-full md:w-[calc(50%-0.75rem)] lg:w-[calc((100%-3rem)/3)]"
-            >
-              <SkillCard
-                title={category.title}
-                icon={category.icon}
-                skills={category.skills}
-              />
-            </div>
-          ))}
-        </div>
+        <Card>
+          <CardContent className="p-6 md:p-8 divide-y divide-border">
+            {skillCategories.map((category) => {
+              const Icon = category.icon;
+              return (
+                <div
+                  key={category.title}
+                  className="grid md:grid-cols-[13rem_1fr] gap-3 md:gap-6 py-5 first:pt-0 last:pb-0"
+                >
+                  <div className="flex items-center gap-3 md:items-start">
+                    <div className="p-2 rounded-md bg-primary/10 shrink-0">
+                      <Icon className="h-5 w-5 text-primary" />
+                    </div>
+                    <h3 className="font-semibold md:pt-1.5">{category.title}</h3>
+                  </div>
+                  <div className="flex flex-wrap gap-2 md:pt-1">
+                    {category.skills.map((skill) => (
+                      <Badge key={skill} variant="secondary" className="font-mono text-xs">
+                        {skill}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </CardContent>
+        </Card>
       </div>
     </section>
   );

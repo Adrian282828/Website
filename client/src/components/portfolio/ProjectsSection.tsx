@@ -1,21 +1,22 @@
 import { ProjectCard } from "./ProjectCard";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import {
   Cpu,
   Volume2,
   Radio,
-  BarChart3,
   MemoryStick,
+  Crosshair,
+  PlugZap,
+  ScanFace,
   TreeDeciduous,
   Bomb,
-  Crosshair,
+  type LucideIcon,
 } from "lucide-react";
 import ebiImage from "@assets/Ebi_1765600059662.webp";
 import cpuImage from "@assets/CPU_1765606942178.webp";
-import regressionImage from "@assets/image_1765606804334.webp";
 import amplifierImage from "@assets/image_1765607800003.webp";
 import imuImage from "@assets/image_1765608588509.webp";
-import minesweeperImage from "@assets/image_1765608966486.webp";
-import avlImage from "@assets/image_1765609061594.webp";
 import internProjectImage from "@assets/intern_project.webp";
 
 const projects = [
@@ -32,6 +33,21 @@ const projects = [
     ],
     icon: Crosshair,
     image: internProjectImage,
+    imageBgClass: "bg-slate-800",
+    stacked: true,
+  },
+  {
+    title: "Embedded Peripheral Driver Suite (ATxmega128A1U)",
+    description:
+      "Wrote bare-metal drivers for the ATxmega128A1U's SPI, UART, ADC, DAC, DMA, timer, and event-system peripherals entirely through register configuration. Used them to sample an LSM6DS3TR IMU over SPI and stream accelerometer data over USART to SerialPlot in real time.",
+    technologies: ["C", "ATxmega128A1U", "SPI", "UART", "DMA", "Interrupts"],
+    highlights: [
+      "Register-level drivers for seven peripheral families, no vendor HAL",
+      "Interrupt-driven data acquisition and waveform generation at 32 MHz",
+      "Real-time IMU telemetry streamed over USART and visualized in SerialPlot",
+    ],
+    icon: Radio,
+    image: imuImage,
     imageContain: true,
     imageBgClass: "bg-slate-800",
   },
@@ -52,47 +68,17 @@ const projects = [
     imageBgClass: "bg-slate-800",
   },
   {
-    title: "Custom 4-bit CPU (VHDL)",
+    title: "Custom 8-Bit CPU (VHDL)",
     description:
-      "Designed a complete CPU from scratch including ALU, program counter, register file, and instruction decoder. Verified the full instruction set using ModelSim simulation.",
-    technologies: ["VHDL", "ModelSim", "RTL Design"],
+      "Designed and implemented an 8-bit microprocessor in VHDL with a custom ALU, operand registers, and a control FSM decoding a 7-instruction ISA. Validated timing and logical correctness through waveform analysis in ModelSim.",
+    technologies: ["VHDL", "ModelSim", "Vivado", "RTL Design"],
     highlights: [
-      "Built ALU with arithmetic and logic operations",
-      "Implemented program counter and instruction decoder",
-      "Full RTL simulation and timing verification",
+      "Custom ALU with arithmetic and logic operations",
+      "Control FSM decoding a 7-instruction ISA",
+      "Waveform-level verification of instruction decoding and hardware synchronization",
     ],
     icon: Cpu,
     image: cpuImage,
-    imageContain: true,
-    imageBgClass: "bg-slate-800",
-  },
-  {
-    title: "AVL Tree Implementation (C++)",
-    description:
-      "Implemented a self-balancing AVL tree from scratch in C++, focusing on efficient insertion, deletion, and search operations. Emphasized correctness, performance, and maintaining balance through rotations.",
-    technologies: ["C++", "Data Structures", "Algorithms"],
-    highlights: [
-      "Implemented single and double tree rotations",
-      "Maintained balance factors and height updates",
-      "Ensured O(log n) performance for core operations",
-    ],
-    icon: TreeDeciduous,
-    image: avlImage,
-    imageContain: true,
-    imageBgClass: "bg-slate-800",
-  },
-  {
-    title: "Minesweeper Game (C++)",
-    description:
-      "Developed a full Minesweeper game in C++ with dynamic board generation, user interaction, and game logic. Focused on clean design, memory management, and edge-case handling.",
-    technologies: ["C++", "Game Logic", "Memory Management"],
-    highlights: [
-      "Dynamic grid and mine placement",
-      "Recursive reveal logic for empty cells",
-      "Robust win/loss condition handling",
-    ],
-    icon: Bomb,
-    image: minesweeperImage,
     imageContain: true,
     imageBgClass: "bg-slate-800",
   },
@@ -111,35 +97,45 @@ const projects = [
     imageContain: true,
     imageBgClass: "bg-slate-800",
   },
+];
+
+interface MoreProject {
+  title: string;
+  role?: string;
+  description: string;
+  technologies: string[];
+  icon: LucideIcon;
+}
+
+const moreProjects: MoreProject[] = [
   {
-    title: "IMU SPI Driver + USART Telemetry",
+    title: "Cisco Fault Managed Power (IPPD)",
+    role: "Project Leader",
     description:
-      "Wrote SPI drivers for the LSM6DS3TR IMU with integrated USART streaming to SerialPlot. Used interrupts to sample accelerometer data for real-time visualization.",
-    technologies: ["SPI", "USART", "Interrupts", "C"],
-    highlights: [
-      "Custom SPI driver implementation",
-      "Interrupt-driven data sampling",
-      "Real-time data visualization",
-    ],
-    icon: Radio,
-    image: imuImage,
-    imageContain: true,
-    imageBgClass: "bg-slate-800",
+      "Designing a Class 4 Fault Managed Power architecture for Ben Hill Griffin Stadium with Cisco FMP engineers, mapping power distribution across networking, Wi-Fi, media, IoT, and security systems.",
+    technologies: ["Power Distribution", "Cisco FMP", "Technical Writing"],
+    icon: PlugZap,
   },
   {
-    title: 'Regression AI Model ("Cammy")',
+    title: "Real-Time Face Detection Node",
     description:
-      "Trained an Auto AI regression model and built a comprehensive data dashboard in Looker Studio. Conducted thorough evaluation and documentation.",
-    technologies: ["Auto AI", "Looker Studio", "Regression"],
-    highlights: [
-      "Model training and evaluation",
-      "Interactive dashboard creation",
-      "Comprehensive documentation",
-    ],
-    icon: BarChart3,
-    image: regressionImage,
-    imageContain: true,
-    imageBgClass: "bg-slate-700",
+      "Built a real-time ROS 2 facial recognition node in OpenCV using publish/subscribe to manage asynchronous sensor streams, bridging physical cameras into Ubuntu WSL2 via usbipd.",
+    technologies: ["ROS 2", "OpenCV", "Python"],
+    icon: ScanFace,
+  },
+  {
+    title: "AVL Tree Implementation",
+    description:
+      "Self-balancing AVL tree in C++ with single and double rotations, maintaining O(log n) insertion, deletion, and search.",
+    technologies: ["C++", "Data Structures"],
+    icon: TreeDeciduous,
+  },
+  {
+    title: "Minesweeper Game",
+    description:
+      "Full Minesweeper game in C++ with dynamic board generation, recursive reveal logic, and careful memory management.",
+    technologies: ["C++", "Memory Management"],
+    icon: Bomb,
   },
 ];
 
@@ -152,8 +148,8 @@ export function ProjectsSection() {
             Featured Projects
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            A selection of hardware and software projects showcasing embedded systems,
-            digital design, and PCB engineering work
+            Hardware and firmware work, from register-level drivers and custom CPUs to
+            sensor integration and PCB design
           </p>
         </div>
 
@@ -169,9 +165,44 @@ export function ProjectsSection() {
               image={project.image}
               imageContain={project.imageContain}
               imageBgClass={project.imageBgClass}
-              reversed={index % 2 === 1}
+              stacked={"stacked" in project && project.stacked}
+              reversed={index % 2 === 0}
             />
           ))}
+        </div>
+
+        <h3 className="text-2xl font-semibold mt-20 mb-8 text-center">More Projects</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {moreProjects.map((project) => {
+            const Icon = project.icon;
+            return (
+              <Card key={project.title} className="hover-elevate">
+                <CardContent className="p-6">
+                  <div className="flex items-start gap-3 mb-3">
+                    <div className="p-2 rounded-md bg-primary/10 shrink-0">
+                      <Icon className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold leading-snug">{project.title}</h4>
+                      {project.role && (
+                        <p className="text-sm text-primary font-medium">{project.role}</p>
+                      )}
+                    </div>
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.map((tech) => (
+                      <Badge key={tech} variant="secondary" className="font-mono text-xs">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
       </div>
     </section>
